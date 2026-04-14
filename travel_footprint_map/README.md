@@ -41,11 +41,11 @@ python3 server.py
 
 如果不想绑定银行卡，可以用 GitHub Pages（免费）：
 
-1. 仓库已内置工作流：`.github/workflows/pages.yml`。
+1. 仓库已内置工作流：`.github/workflows/pages.yml`（发布到 `gh-pages` 分支）。
 2. 在 GitHub 仓库打开 **Settings -> Pages**。
-3. Source 选择 **GitHub Actions**。
-4. push 一次代码到 `main`（或手动运行 workflow）。
-5. 等 Actions 成功后，访问：`https://renee-r1.github.io/travel-footprint-map/`
+3. Source 选择 **Deploy from a branch**。
+4. Branch 选择 **`gh-pages`**，Folder 选择 **`/ (root)`**，保存。
+5. push 一次代码到 `main`（或手动运行 workflow）后，访问：`https://renee-r1.github.io/travel-footprint-map/`
 
 说明：
 
