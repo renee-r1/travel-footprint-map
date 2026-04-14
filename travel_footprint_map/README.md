@@ -37,6 +37,21 @@ python3 server.py
 
 部署成功后，用 Render 提供的 `https://xxx.onrender.com` 打开即可（与本地一样走 `/api/geocode`）。
 
+## 不绑卡部署（GitHub Pages）
+
+如果不想绑定银行卡，可以用 GitHub Pages（免费）：
+
+1. 仓库已内置工作流：`.github/workflows/pages.yml`。
+2. 在 GitHub 仓库打开 **Settings -> Pages**。
+3. Source 选择 **GitHub Actions**。
+4. push 一次代码到 `main`（或手动运行 workflow）。
+5. 等 Actions 成功后，访问：`https://renee-r1.github.io/travel-footprint-map/`
+
+说明：
+
+- GitHub Pages 是纯静态托管，不会启动 `server.py`，所以没有 `/api/geocode` 后端代理。
+- 页面会自动尝试直连地理编码服务；若网络不通，会使用内置城市坐标兜底。
+
 ## 最短发布命令（GitHub）
 
 在 `travel_footprint_map` 目录执行（把 `<YOUR_REPO_URL>` 换成你自己的仓库地址）：
