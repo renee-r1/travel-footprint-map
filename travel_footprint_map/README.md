@@ -15,27 +15,27 @@ python3 server.py
 
 ## 一键部署到 Render
 
-本目录已包含部署文件：
+部署文件：
 
-- `render.yaml`
-- `Procfile`
-- `requirements.txt`
+- 仓库**根目录**的 `render.yaml`（已设置 `rootDir: travel_footprint_map`）
+- 本目录内：`Procfile`、`requirements.txt`
 
-### 方式 A：用 `render.yaml`
+### 方式 A：Blueprint（推荐）
 
-1. 把项目推到 GitHub。
-2. 在 Render 选择 **New +** -> **Blueprint**。
-3. 选择仓库并部署（Render 会读取 `render.yaml`）。
+1. 确保 GitHub 上**仓库根目录**有 `render.yaml`（与 `travel_footprint_map/` 同级），并已 push。
+2. 打开 [Render Dashboard](https://dashboard.render.com) → **New +** → **Blueprint**。
+3. 选中仓库 `renee-r1/travel-footprint-map`，连接并部署。
 
-### 方式 B：手动建 Web Service
+### 方式 B：手动 Web Service
 
-1. 在 Render 选择 **New +** -> **Web Service**。
-2. 连接你的仓库。
-3. 配置：
-   - Runtime: `Python`
-   - Build Command: `echo "No build step required"`
-   - Start Command: `python3 server.py`
-4. 点击 Deploy。
+1. **New +** → **Web Service** → 连接同一仓库。
+2. **Root Directory** 填：`travel_footprint_map`（必填，否则找不到 `server.py`）。
+3. Runtime：**Python**
+4. Build Command：`echo "No build step required"`
+5. Start Command：`python3 server.py`
+6. **Deploy**。
+
+部署成功后，用 Render 提供的 `https://xxx.onrender.com` 打开即可（与本地一样走 `/api/geocode`）。
 
 ## 最短发布命令（GitHub）
 

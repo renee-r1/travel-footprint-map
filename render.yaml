@@ -1,0 +1,11 @@
+# Render Blueprint：应用在子目录 travel_footprint_map/
+# https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: travel-footprint-map
+    runtime: python
+    plan: free
+    rootDir: travel_footprint_map
+    buildCommand: "echo 'No build step required'"
+    startCommand: python3 server.py
+    autoDeploy: true
