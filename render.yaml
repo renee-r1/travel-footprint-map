@@ -3,7 +3,7 @@
 services:
   - type: web
     name: travel-footprint-map
-    runtime: python
+    env: python
     plan: free
     rootDir: travel_footprint_map
     buildCommand: "echo 'No build step required'"
