@@ -1,0 +1,362 @@
+:root {
+  --bg: #0f1419;
+  --surface: #1a2332;
+  --border: #2d3a4d;
+  --text: #e8eef5;
+  --muted: #8b9cb3;
+  --accent: #3d9cf0;
+  --accent-dim: #2563a8;
+  --danger: #e85d6a;
+  --radius: 10px;
+  --font: "DM Sans", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  height: 100%;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  display: grid;
+  grid-template-columns: minmax(280px, 340px) 1fr;
+  grid-template-rows: 1fr;
+  min-height: 100vh;
+  min-height: 100dvh;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sidebar {
+  padding: 1.25rem 1.25rem 2rem;
+  border-right: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+}
+
+.sidebar h1 {
+  margin: 0 0 0.35rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.sidebar .lead {
+  margin: 0 0 1.25rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.form-block {
+  margin-bottom: 1.25rem;
+}
+
+.form-block label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+
+.form-block input[type="text"],
+.form-block input[type="file"] {
+  width: 100%;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.form-block input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(61, 156, 240, 0.25);
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+button.btn {
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.55rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: inherit;
+  transition: background 0.15s, transform 0.05s;
+}
+
+button.btn:active {
+  transform: scale(0.98);
+}
+
+button.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+button.btn-primary:hover {
+  background: #5aadf5;
+}
+
+button.btn-secondary {
+  background: var(--border);
+  color: var(--text);
+}
+
+button.btn-secondary:hover {
+  background: #3d4f66;
+}
+
+button.btn-ghost {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+
+button.btn-ghost:hover {
+  color: var(--text);
+  border-color: var(--muted);
+}
+
+button.btn-danger {
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid rgba(232, 93, 106, 0.4);
+}
+
+.upload-hint {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.35rem;
+}
+
+.trip-list {
+  margin-top: 1rem;
+  max-height: 220px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.trip-list h2 {
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--surface);
+}
+
+.trip-item {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.82rem;
+  border-bottom: 1px solid rgba(45, 58, 77, 0.6);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.trip-item:last-child {
+  border-bottom: none;
+}
+
+.trip-item strong {
+  display: block;
+  color: var(--text);
+}
+
+.trip-item small {
+  color: var(--muted);
+}
+
+.trip-item button.remove {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: var(--danger);
+  cursor: pointer;
+  font-size: 0.75rem;
+  padding: 0.15rem 0.35rem;
+}
+
+.status {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  min-height: 1.2em;
+  color: var(--muted);
+}
+
+.status.error {
+  color: var(--danger);
+}
+
+.status.ok {
+  color: #6ee7b7;
+}
+
+.maps-area {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.maps-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  flex: 1;
+  min-height: min(65vh, 680px);
+  min-height: 0;
+}
+
+.maps-split-single {
+  grid-template-columns: 1fr;
+}
+
+@media (max-width: 900px) {
+  .maps-split {
+    grid-template-rows: minmax(240px, 50vh);
+    min-height: auto;
+  }
+}
+
+.map-half {
+  position: relative;
+  border: 1px solid var(--border);
+  min-height: 240px;
+  /* 给 Leaflet 明确占位，避免 flex 子项高度为 0 导致「只有灰底、无瓦片」 */
+}
+
+.map-half h3 {
+  position: absolute;
+  z-index: 500;
+  top: 10px;
+  left: 50px;
+  margin: 0;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(15, 20, 25, 0.85);
+  color: var(--text);
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.map-half > div[id^="map-"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.map-half .leaflet-container {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  font-family: inherit;
+  background: #1c2430;
+}
+
+.attribution-footer {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.7rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.attribution-footer a {
+  color: var(--accent);
+}
+
+.leaflet-tooltip.trip-tooltip {
+  background: rgba(26, 35, 50, 0.95);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  padding: 0.65rem 0.85rem;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.leaflet-tooltip.trip-tooltip::before {
+  border-top-color: var(--border);
+}
+
+/* 自定义打点（与「谁」颜色对应）；城市名在水滴上方 */
+.leaflet-div-icon.trip-marker-divicon {
+  background: transparent !important;
+  border: none !important;
+}
+
+.trip-marker-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: max-content;
+  max-width: 7.5rem;
+  min-height: 48px;
+}
+
+.trip-marker-city {
+  display: block;
+  max-width: 7.5rem;
+  margin-bottom: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+  color: #f0f4fa;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow:
+    0 0 3px #0f1419,
+    0 1px 2px #0f1419,
+    0 0 8px rgba(0, 0, 0, 0.75);
+  pointer-events: none;
+}
+
+.trip-marker-pin {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  background: var(--pin-fill, #3388ff);
+  border: 2px solid #fff;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  margin: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
